@@ -55,7 +55,7 @@ echo ""
 echo -e "           \033[1;33m● \033[1;32mFINALIZANDO A ACTUALIZACION, PUEDE DEMORAR \033[1;33m● \033[1;33mESPERE...\033[0m"
 cd /var/www/html || exit
 rm -rf * > /dev/null 2>&1
-wget https://github.com/JeanRocha91x/psshplus-/raw/main/gestorssh/gestorssh18.zip > /dev/null 2>&1
+wget https://github.com/ricardojve12/bitssh/raw/main/gestorssh18.zip > /dev/null 2>&1
 sleep 1
 unzip -o gestorssh18.zip > /dev/null 2>&1
 rm -rf gestorssh18.zip index.html > /dev/null 2>&1

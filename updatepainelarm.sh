@@ -52,10 +52,10 @@ clear
 senha=$(cut -d"'" -f2 /var/www/html/pages/system/pass.php)
 empresaatual=$(cut -d"'" -f2 /var/www/html/empresa)
 echo ""
-echo -e "           \033[1;33m● \033[1;32mFINALIZANDO A ATUALIZAÇÃO, PODE DEMORAR \033[1;33m● \033[1;33mESPERE...\033[0m"
+echo -e "           \033[1;33m● \033[1;32mFINALIZANDO A ACTUALIZACION, PUEDE DEMORAR \033[1;33m● \033[1;33mESPERE...\033[0m"
 cd /var/www/html || exit
 rm -rf * > /dev/null 2>&1
-wget https://github.com/JeanRocha91x/psshplus-/raw/main/gestorssh/gestorssharm.zip > /dev/null 2>&1
+wget https://github.com/ricardojve12/bitssh/raw/main/gestorssharm.zip > /dev/null 2>&1
 sleep 1
 unzip -o gestorssharm.zip > /dev/null 2>&1
 rm -rf gestorssharm.zip index.html > /dev/null 2>&1
@@ -89,7 +89,7 @@ echo -e "   BITSSH" | figlet
 echo ""
 echo -e "\033[1;36m PANELWEB DIGITE ESA IP EN NAVEGADOR:\033[1;37m http://$IP/admin\033[0m"
 echo ""
-echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/apps\033[0m"
+echo -e "\033[1;36m ALMACENAMIENTO DE APPS:\033[1;37m http://$IP/apps\033[0m"
 echo ""
 echo -e "\033[1;33m MAS INFORMACION \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@jvbits\033[0m"
 echo ""

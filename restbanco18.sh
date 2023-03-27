@@ -75,7 +75,7 @@ mysql -h localhost -u sshplus -p$passdb -e 'CREATE DATABASE sshplus'
 mysql -h localhost -u sshplus -p$passdb --default_character_set utf8 sshplus < /root/restaurar/sshplus.sql
 echo -e "                              \033[1;31mBy @jvbits\033[1;36m"
 echo ""
-echo -e "\n\033[1;32mDADOS RESTAURADO COM SUCESSO!\033[0m"
+echo -e "\n\033[1;32mDATOS RESTAURADO CON EXITO!\033[0m"
 echo ""
 sleep 3
 echo -e "\033[1;31mREGRESANDO...\033[0m"

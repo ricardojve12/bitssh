@@ -196,8 +196,8 @@ senha_root () {
 ##PANEL REMOVE
 remove_painel () {
 clear
-echo -e "\033[1;32m SEMPRE CONFIRME COM \033[1;37mY"
-echo -e "\033[1;32m PROSSIGA COM \033[1;37mENTER"
+echo -e "\033[1;32m SIEMPRE CONFIRME CON \033[1;37mY"
+echo -e "\033[1;32m PROSSIGA CON \033[1;37mENTER"
 sleep 7
 service apache2 stop
 apt-get purge mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
@@ -211,7 +211,7 @@ service apache2 restart > /dev/null 2>&1
 service apache2 stop
 [[ ! -d /var/www ]] && mkdir /var/www
 [[ ! -d /var/www/html ]] && mkdir /var/www/html
-echo -e "\033[1;36mPAINEL REMOVIDO COM ÊXITO \033[1;32m[!OK]"
+echo -e "\033[1;36mPANEL REMOVIDO CON ÊXITO \033[1;32m[!OK]"
 pweb
 }
 

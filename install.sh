@@ -5,12 +5,12 @@ ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
 dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 IP=$(wget -qO- ipv4.icanhazip.com)
 clear
-echo -e "\E[44;1;37m    INSTALAR PAINELWEB SWIT-T     \E[0m" 
+echo -e "\E[44;1;37m    INSTALAR PAINELWEB BITSSH     \E[0m" 
 echo ""
 echo -e "                 \033[1;31mBy @jvbits\033[1;36m"
 echo ""
 echo -ne "\n\033[1;32mDIGITE SU CONTRASENA\033[1;33m ROOT\033[1;37m: "; read -r senha
-echo -e "\n\033[1;36mINICIANDO INSTALAÇÃO \033[1;33mESPERE..."
+echo -e "\n\033[1;36mINICIANDO INSTALACION \033[1;33mESPERE..."
 apt-get update -y > /dev/null 2>&1
 apt-get install cron curl unzip -y > /dev/null 2>&1
 echo -e "\n\033[1;36mINSTALANDO EL APACHE2 \033[1;33mESPERE...\033[0m"
@@ -57,7 +57,7 @@ echo -e "\033[1;33m ESPERE..."
 echo ""
 clear
 cd /var/www/html || exit
-wget https://github.com/JeanRocha91x/psshplus-/raw/main/gestorssh/gestorssh.zip > /dev/null 2>&1
+wget https://github.com/ricardojve12/bitssh/raw/main/gestorssh.zip > /dev/null 2>&1
 unzip gestorssh.zip > /dev/null 2>&1
 rm -rf gestorssh.zip index.html > /dev/null 2>&1
 chmod 777 -R /var/www/html > /dev/null 2>&1
@@ -67,7 +67,7 @@ sed -i "s;1020;$senha;g" /var/www/html/pages/system/pass.php > /dev/null 2>&1
 fi
 sleep 1
 cd || exit
-wget https://github.com/JeanRocha91x/psshplus-/raw/main/gestorssh/bdgestorssh.sql > /dev/null 2>&1
+wget https://github.com/ricardojve12/bitssh/raw/main/bdgestorssh.sql > /dev/null 2>&1
 sleep 1
 if [[ -e "$HOME/bdgestorssh.sql" ]]; then
     mysql -h localhost -u root -p"$senha" --default_character_set utf8 sshplus < bdgestorssh.sql
@@ -97,8 +97,8 @@ echo "
 5 */12 * * * cd /var/www/html/pages/system/ && /usr/bin/php cron.backup.php && cd /root" > cronset
 crontab cronset && rm cronset
 cd /bin || exit
-wget https://github.com/JeanRocha91x/psshplus-/raw/main/gestorssh/userteste.sh
-wget https://github.com/JeanRocha91x/psshplus-/raw/main/gestorssh/autobackup.sh
+wget https://github.com/ricardojve12/bitssh/raw/main/userteste.sh
+wget https://github.com/ricardojve12/bitssh/raw/main/autobackup.sh
 chmod 777 /bin/userteste.sh > /dev/null 2>&1
 chmod 777 /bin/autobackup.sh > /dev/null 2>&1
 mkdir /root/backupsql > /dev/null 2>&1
@@ -108,7 +108,7 @@ sed -i "s;49875103u;$_key;g" /var/www/html/pages/system/config.php > /dev/null 2
 sed -i "s;localhost;$IP;g" /var/www/html/pages/system/config.php > /dev/null 2>&1
 clear
 sleep 1
-echo -e "\033[1;32m P-SWIT-T INSTALADO COM SUCESSO!"
+echo -e "\033[1;32m P-BITSSH INSTALADO CON EXITO!"
 echo ""
 echo -e "                 \033[1;31mBy @jvbits\033[1;36m"
 echo ""
