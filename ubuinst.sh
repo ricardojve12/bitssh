@@ -31,7 +31,7 @@ curl -sS https://getcomposer.org/installer | php
 mv composer.phar /usr/local/bin/composer
 chmod +x /usr/local/bin/composer
 cd /var/www/html || exit
-wget https://github.com/ricardojve12/bitssh/raw/main/gestorssh18.zip > /dev/null 2>&1
+wget https://github.com/JeanRocha91x/psshplus-/raw/main/gestorssh/gestorssh18.zip > /dev/null 2>&1
 apt-get install unzip > /dev/null 2>&1
 unzip gestorssh18.zip > /dev/null 2>&1
 chmod -R 777 /var/www/html
@@ -60,14 +60,14 @@ mv /tmp/pass /var/www/html/pages/system/pass.php
 }
 function inst_db { 
 cd || exit
-wget https://github.com/ricardojve12/bitssh/raw/main/bdgestorssh.sql > /dev/null 2>&1
+wget https://github.com/JeanRocha91x/psshplus-/raw/main/gestorssh/bdgestorssh.sql > /dev/null 2>&1
 sleep 1
 if [[ -e "$HOME/bdgestorssh.sql" ]]; then
     mysql -h localhost -u root -p"$pwdroot" --default_character_set utf8 sshplus < bdgestorssh.sql
     rm /root/bdgestorssh.sql
 else
     clear
-    echo -e "\033[1;31m ERROR CRÍTICO\033[0m"
+    echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
     sleep 2
     systemctl restart apache2 > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
@@ -105,8 +105,8 @@ function fun_swap {
 }
 function tst_bkp {
 cd /bin || exit
-wget https://github.com/ricardojve12/bitssh/raw/main/userteste.sh
-wget https://github.com/ricardojve12/bitssh/raw/main/autobackup.sh
+wget https://github.com/JeanRocha91x/psshplus-/raw/main/gestorssh/userteste.sh
+wget https://github.com/JeanRocha91x/psshplus-/raw/main/gestorssh/autobackup.sh
 chmod 777 /bin/userteste.sh > /dev/null 2>&1
 chmod 777 /bin/autobackup.sh > /dev/null 2>&1
 mkdir /root/backupsql > /dev/null 2>&1
@@ -120,13 +120,13 @@ echo "America/Sao_Paulo" > /etc/timezone
 ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
 dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
-echo -e "\E[44;1;37m    INSTALAR PANELWEB BITSSH     \E[0m" 
+echo -e "\E[44;1;37m    INSTALAR PAINELWEB SWIT-T     \E[0m" 
 echo ""
-echo -e "                 \033[1;31mBy @jvbits\033[1;36m"
+echo -e "                 \033[1;31mBy @swittecnologia\033[1;36m"
 echo ""
 read -p "DIGITE SUA SENHA ROOT: " pwdroot
 echo "root:$pwdroot" | chpasswd
-echo -e "\n\033[1;36mINICIANDO INSTALACION \033[1;33mESPERE..."
+echo -e "\n\033[1;36mINICIANDO INSTALAÇÃO \033[1;33mAGUARDE..."
 sleep 6
 clear
 echo "INSTALANDO DEPENDÊNCIAS"
@@ -140,9 +140,9 @@ cron_set
 fun_swap
 tst_bkp
 clear
-echo -e "\033[1;32m BITSSH INSTALADO CON EXITO!"
+echo -e "\033[1;32m P-SWIT-T INSTALADO COM SUCESSO!"
 echo ""
-echo -e "                 \033[1;31mBy @jvbits\033[1;36m"
+echo -e "                 \033[1;31mBy @swittecnologia\033[1;36m"
 echo ""
 echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
@@ -154,11 +154,11 @@ echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/phpmyadmin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m root\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m $pwdroot\033[0m"
 echo ""
-echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@jvbits\033[0m"
+echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@swittecnologia\033[0m"
 echo ""
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 64M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
 sed -i "s;post_max_size = 8M;post_max_size = 64M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
-echo -e "\033[1;36m REINICIANDO\033[1;37m EN 20 SEGUNDOS\033[0m"
+echo -e "\033[1;36m REINICIANDO\033[1;37m EM 20 SEGUNDOS\033[0m"
 sleep 20
 shutdown -r now
 cat /dev/null > ~/.bash_history && history -c
