@@ -67,7 +67,7 @@ if [[ -e "$HOME/bdgestorssh.sql" ]]; then
     rm /root/bdgestorssh.sql
 else
     clear
-    echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
+    echo -e "\033[1;31m ERROR CRÍTICO\033[0m"
     sleep 2
     systemctl restart apache2 > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
@@ -120,13 +120,13 @@ echo "America/Sao_Paulo" > /etc/timezone
 ln -fs /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime > /dev/null 2>&1
 dpkg-reconfigure --frontend noninteractive tzdata > /dev/null 2>&1
 clear
-echo -e "\E[44;1;37m    INSTALAR PAINELWEB SWIT-T     \E[0m" 
+echo -e "\E[44;1;37m    INSTALAR PANELWEB BITSSH     \E[0m" 
 echo ""
-echo -e "                 \033[1;31mBy @swittecnologia\033[1;36m"
+echo -e "                 \033[1;31mBy @jvbits\033[1;36m"
 echo ""
 read -p "DIGITE SUA SENHA ROOT: " pwdroot
 echo "root:$pwdroot" | chpasswd
-echo -e "\n\033[1;36mINICIANDO INSTALAÇÃO \033[1;33mAGUARDE..."
+echo -e "\n\033[1;36mINICIANDO INSTALACION \033[1;33mESPERE..."
 sleep 6
 clear
 echo "INSTALANDO DEPENDÊNCIAS"
@@ -140,9 +140,9 @@ cron_set
 fun_swap
 tst_bkp
 clear
-echo -e "\033[1;32m P-SWIT-T INSTALADO COM SUCESSO!"
+echo -e "\033[1;32m BITSSH INSTALADO CON EXITO!"
 echo ""
-echo -e "                 \033[1;31mBy @swittecnologia\033[1;36m"
+echo -e "                 \033[1;31mBy @jvbits\033[1;36m"
 echo ""
 echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
@@ -154,11 +154,11 @@ echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/phpmyadmin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m root\033[0m"
 echo -e "\033[1;36m SENHA:\033[1;37m $pwdroot\033[0m"
 echo ""
-echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@swittecnologia\033[0m"
+echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@jvbits\033[0m"
 echo ""
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 64M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
 sed -i "s;post_max_size = 8M;post_max_size = 64M;g" /etc/php/7.4/apache2/php.ini > /dev/null 2>&1
-echo -e "\033[1;36m REINICIANDO\033[1;37m EM 20 SEGUNDOS\033[0m"
+echo -e "\033[1;36m REINICIANDO\033[1;37m EN 20 SEGUNDOS\033[0m"
 sleep 20
 shutdown -r now
 cat /dev/null > ~/.bash_history && history -c

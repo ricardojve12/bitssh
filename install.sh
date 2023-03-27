@@ -7,23 +7,23 @@ IP=$(wget -qO- ipv4.icanhazip.com)
 clear
 echo -e "\E[44;1;37m    INSTALAR PAINELWEB SWIT-T     \E[0m" 
 echo ""
-echo -e "                 \033[1;31mBy @swittecnologia\033[1;36m"
+echo -e "                 \033[1;31mBy @jvbits\033[1;36m"
 echo ""
-echo -ne "\n\033[1;32mDIGITE SUA SENHA\033[1;33m ROOT\033[1;37m: "; read -r senha
-echo -e "\n\033[1;36mINICIANDO INSTALAÇÃO \033[1;33mAGUARDE..."
+echo -ne "\n\033[1;32mDIGITE SU CONTRASENA\033[1;33m ROOT\033[1;37m: "; read -r senha
+echo -e "\n\033[1;36mINICIANDO INSTALAÇÃO \033[1;33mESPERE..."
 apt-get update -y > /dev/null 2>&1
 apt-get install cron curl unzip -y > /dev/null 2>&1
-echo -e "\n\033[1;36mINSTALANDO O APACHE2 \033[1;33mAGUARDE...\033[0m"
+echo -e "\n\033[1;36mINSTALANDO EL APACHE2 \033[1;33mESPERE...\033[0m"
 apt-get install apache2 -y > /dev/null 2>&1
 apt-get install php5 libapache2-mod-php5 php5-mcrypt -y > /dev/null 2>&1
 service apache2 restart > /dev/null 2>&1
-echo -e "\n\033[1;36mINSTALANDO O MySQL \033[1;33mAGUARDE...\033[0m"
+echo -e "\n\033[1;36mINSTALANDO EL MySQL \033[1;33mESPERE...\033[0m"
 echo "debconf mysql-server/root_password password $senha" | debconf-set-selections
 echo "debconf mysql-server/root_password_again password $senha" | debconf-set-selections
 apt-get install mysql-server -y > /dev/null 2>&1
 mysql_install_db > /dev/null 2>&1
 (echo "$senha"; echo n; echo y; echo y; echo y; echo y)|mysql_secure_installation > /dev/null 2>&1
-echo -e "\n\033[1;36mINSTALANDO O PHPMYADMIN \033[1;33mAGUARDE...\033[0m"
+echo -e "\n\033[1;36mINSTALANDO EL PHPMYADMIN \033[1;33mESPERE...\033[0m"
 echo "phpmyadmin phpmyadmin/dbconfig-install boolean true" | debconf-set-selections
 echo "phpmyadmin phpmyadmin/app-password-confirm password $senha" | debconf-set-selections
 echo "phpmyadmin phpmyadmin/mysql/admin-pass password $senha" | debconf-set-selections
@@ -38,7 +38,7 @@ if [ "$(php -m |grep ssh2)" = "ssh2" ]; then
   true
 else
   clear
-  echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
+  echo -e "\033[1;31m ERROR CRÍTICO\033[0m"
   cat /dev/null > ~/.bash_history && history -c
 rm /root/*.sh* > /dev/null 2>&1
 clear
@@ -51,9 +51,9 @@ clear
 echo ""
 mysql -h localhost -u root -p$senha -e "CREATE DATABASE sshplus"
 clear
-echo -e "\033[1;36m FINALIZANDO INSTALAÇÃO\033[0m"
+echo -e "\033[1;36m FINALIZANDO INSTALACION\033[0m"
 echo ""
-echo -e "\033[1;33m AGUARDE..."
+echo -e "\033[1;33m ESPERE..."
 echo ""
 clear
 cd /var/www/html || exit
@@ -74,7 +74,7 @@ if [[ -e "$HOME/bdgestorssh.sql" ]]; then
     rm /root/bdgestorssh.sql
 else
     clear
-    echo -e "\033[1;31m ERRO CRÍTICO\033[0m"
+    echo -e "\033[1;31m ERROR CRÍTICO\033[0m"
     sleep 2
     service apache2 restart > /dev/null 2>&1
 cat /dev/null > ~/.bash_history && history -c
@@ -110,19 +110,19 @@ clear
 sleep 1
 echo -e "\033[1;32m P-SWIT-T INSTALADO COM SUCESSO!"
 echo ""
-echo -e "                 \033[1;31mBy @swittecnologia\033[1;36m"
+echo -e "                 \033[1;31mBy @jvbits\033[1;36m"
 echo ""
-echo -e "\033[1;36m SEU PAINEL:\033[1;37m http://$IP/admin\033[0m"
+echo -e "\033[1;36m SU PANEL:\033[1;37m http://$IP/admin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m admin\033[0m"
-echo -e "\033[1;36m SENHA:\033[1;37m admin\033[0m"
+echo -e "\033[1;36m CONTRASENA:\033[1;37m admin\033[0m"
 echo ""
-echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/apps\033[0m"
+echo -e "\033[1;36m ALOJAMIENTO DE APPS:\033[1;37m http://$IP/apps\033[0m"
 echo ""
-echo -e "\033[1;36m LOJA DE APPS:\033[1;37m http://$IP/phpmyadmin\033[0m"
+echo -e "\033[1;36m ALOJAMIENTO DE APPS:\033[1;37m http://$IP/phpmyadmin\033[0m"
 echo -e "\033[1;36m USUÁRIO:\033[1;37m root\033[0m"
-echo -e "\033[1;36m SENHA:\033[1;37m $senha\033[0m"
+echo -e "\033[1;36m CONTRASENA:\033[1;37m $senha\033[0m"
 echo ""
-echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@swittecnologia\033[0m"
+echo -e "\033[1;33m MAIS INFORMAÇÕES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37m@jvbits\033[0m"
 echo ""
 sed -i "s;upload_max_filesize = 2M;upload_max_filesize = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
 sed -i "s;post_max_size = 8M;post_max_size = 64M;g" /etc/php5/apache2/php.ini > /dev/null 2>&1
